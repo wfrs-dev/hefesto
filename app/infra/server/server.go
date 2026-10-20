@@ -7,6 +7,7 @@ import (
 
 	"github.com/labstack/echo/v5"
 	"github.com/wfrs-dev/hefesto/app/config"
+	"github.com/wfrs-dev/hefesto/app/tools"
 )
 
 type Modular interface {
@@ -27,6 +28,7 @@ func New(cfg *config.Config) (*Server, error) {
 
 	e := echo.New()
 	e.Use(requestLoggerMiddleware())
+	e.Validator = &tools.PlaygroundValidator{}
 	return &Server{
 		instance: e,
 		config:   cfg,
