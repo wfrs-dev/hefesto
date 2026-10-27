@@ -45,7 +45,7 @@ func (s *Server) Start() error {
 		m.Register(s.instance)
 	}
 
-	return s.instance.Start(fmt.Sprintf(":%d", s.config.Server.Port))
+	return s.instance.Start(fmt.Sprintf("%s:%d", s.config.Server.Listen, s.config.Server.Port))
 }
 
 func (s *Server) EchoInstance() *echo.Echo {

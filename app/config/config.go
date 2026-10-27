@@ -17,6 +17,7 @@ type Database struct {
 }
 
 type Server struct {
+	Listen string `json:"listen"`
 	Port     int    `json:"port"`
 	LogLevel string `json:"logLevel"`
 }
@@ -55,6 +56,7 @@ func GenerateDefaultConfig() error {
 			SSLMode:  "disable",
 		},
 		Server: Server{
+			Listen:   "127.0.0.1",
 			Port:     8187,
 			LogLevel: "debug",
 		},
